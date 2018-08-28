@@ -5,7 +5,7 @@
 */
 #include <stdio.h>
 //--------------------------------------------------
-//void ingresar_contacto();
+void ingresar_contacto();
 
 typedef struct{
   char nombre[20][1];
