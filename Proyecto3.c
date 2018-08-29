@@ -8,11 +8,13 @@
 //--------------------------------------------------
 typedef struct{
   char nombre[20][1];
-  int edad;
+  char edad[20][1];
   char direccion[20][1];
   char telefono[20][1];
 }Contacto;
 void ingresar_contacto(Contacto *pointer);
+void consultar_contacto(Contacto *pointer);
+int numeroDeContactos = 1;
 //--------------------------------------------------
 int main(int argc, char const *argv[]) {
   Contacto *agenda = NULL;
@@ -20,6 +22,7 @@ int main(int argc, char const *argv[]) {
   int opcion = 0;
   printf("Eliga una opcion:\n" );
   scanf("%d",&opcion);
+  
   switch (opcion) {
     case 1:;
       //ingresar contactos
@@ -27,6 +30,7 @@ int main(int argc, char const *argv[]) {
       break;
     case 2:
       // consultar contacto
+      consultar_contacto(agenda);
       break;
     case 3:
       // modificar contacto
@@ -39,13 +43,11 @@ int main(int argc, char const *argv[]) {
       return 0;
     default:
       printf("Opcion invalida\n");
-
   }
 }
-
+//----------------------------------------------
 void ingresar_contacto(Contacto *pointer) {
-  //Contacto *pointerTmp = NULL;
-  int i = 0, limiteWhile = 0,numeroDeContactos = 1;
+  int i = 0, limiteWhile = 0;
   printf("Cuantos contactos va a ingresar: ");
   scanf("%i",&limiteWhile);
   if(pointer != NULL){
@@ -54,7 +56,7 @@ void ingresar_contacto(Contacto *pointer) {
       printf("\tNombre: ");
       scanf("%s",&(pointer[i].nombre));
       printf("\tEdad: ");
-      scanf("%i",&(pointer[i].edad));
+      scanf("%s",&(pointer[i].edad));
       printf("\tDireccion: ");
       scanf("%s",&(pointer[i].direccion));
       printf("\tTelefono: ");
@@ -64,4 +66,13 @@ void ingresar_contacto(Contacto *pointer) {
       i++;
     }while(i < limiteWhile && pointer!= NULL);
   }
+}
+void consultar_contacto(Contacto *pointer){
+  if (numeroDeContactos >= 2) {
+    char palabra[20][1];
+    printf("Escriba el numero (telefonico) del contacto\n\t :");
+    scanf("%s",palabra);
+    printf("%s", palabra);
+  }
+
 }
