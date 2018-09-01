@@ -49,6 +49,7 @@ int main(int argc, char const *argv[]) {
       case 4:
         // mostrar todos los contactos
         system("clear");
+        mostrar_contactos(agenda);
         break;
       case 5:
         // salir
